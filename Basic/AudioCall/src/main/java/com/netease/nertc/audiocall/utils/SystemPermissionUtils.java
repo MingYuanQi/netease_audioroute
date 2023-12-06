@@ -49,9 +49,6 @@ public class SystemPermissionUtils {
         PERMISSIONS.add(WAKE_LOCK);
         PERMISSIONS.add(BLUETOOTH);
         PERMISSIONS.add(MODIFY_AUDIO_SETTINGS);
-        if(Compatibility.getTargetVersion() > 30) {
-            PERMISSIONS.add(READ_PHONE_STATE);
-        }
         if (Compatibility.runningOnSnowConeOrHigher()) {
             PERMISSIONS.add(BLUETOOTH_CONNECT);
         }

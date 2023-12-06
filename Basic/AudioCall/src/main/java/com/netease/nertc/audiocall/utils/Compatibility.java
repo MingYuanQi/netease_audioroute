@@ -11,9 +11,6 @@ package com.netease.nertc.audiocall.utils;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
-import android.text.TextUtils;
-
-import com.netease.yunxin.lite.util.ContextUtils;
 
 import java.lang.reflect.Field;
 
@@ -99,13 +96,6 @@ public class Compatibility {
 
     public static boolean runningOnSnowConeOrHigher() {
         return isCompatible(31);
-    }
-
-    public static int getTargetVersion() {
-        if(ContextUtils.getContext() != null) {
-            return ContextUtils.getContext().getApplicationInfo().targetSdkVersion;
-        }
-        return 0;
     }
 
     public static boolean runningOnPieOrHigher() {

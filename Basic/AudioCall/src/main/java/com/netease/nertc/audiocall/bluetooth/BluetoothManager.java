@@ -15,7 +15,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
-import android.media.MediaRecorder;
 import android.util.Log;
 
 import com.netease.lava.webrtc.Logging;

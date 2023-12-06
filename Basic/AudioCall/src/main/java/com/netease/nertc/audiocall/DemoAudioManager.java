@@ -3,7 +3,6 @@ package com.netease.nertc.audiocall;
 import static android.media.AudioManager.AUDIOFOCUS_GAIN;
 import static com.netease.nertc.audiocall.utils.DeviceUtil.audioDeviceToString;
 import static com.netease.nertc.audiocall.utils.DeviceUtil.audioModeToString;
-import static com.netease.yunxin.lite.audio.BluetoothManager.BLUETOOTH_SCO_TIMEOUT_MS;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -23,7 +22,6 @@ import com.netease.nertc.audiocall.utils.AudioManagerEvents;
 import com.netease.nertc.audiocall.utils.Compatibility;
 import com.netease.nertc.audiocall.utils.DeviceUtil;
 import com.netease.nertc.audiocall.utils.SystemPermissionUtils;
-import com.netease.yunxin.lite.audio.AudioDeviceCompatibility;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -51,7 +49,7 @@ public class DemoAudioManager {
     public DemoAudioManager(Context context, int audioMode, AudioManagerEvents audioManagerEvents){
         mContext = context;
         DemoAudioManager = ((AudioManager) context.getSystemService(Context.AUDIO_SERVICE));
-        mBluetoothManager = DemoBluetoothManager.create(context, this, BLUETOOTH_SCO_TIMEOUT_MS);
+        mBluetoothManager = DemoBluetoothManager.create(context, this, 12000);
         mWiredHeadsetReceiver = new WiredHeadsetReceiver();
         mAudioManagerState = AudioManagerState.UNINITIALIZED;
         mAudioManagerEvents = audioManagerEvents;
@@ -72,7 +70,7 @@ public class DemoAudioManager {
         bluetoothTryReconnect = false;
         saveAudioStatus();
         mHasWiredHeadset = hasWiredHeadset();
-        registerAudioFocusRequest(true, AudioDeviceCompatibility.getStreamType(), focusMode);
+        registerAudioFocusRequest(true, 0, focusMode);
         setMicrophoneMute(false);
         mUserSelectedAudioDevice = AudioDevice.NONE;
         mSelectedAudioDevice = AudioDevice.NONE;

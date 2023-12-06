@@ -8,8 +8,8 @@ import android.os.Looper;
 
 import com.netease.lava.webrtc.Logging;
 import com.netease.nertc.audiocall.DemoAudioManager;
-import com.netease.yunxin.lite.util.SystemPermissionUtils;
-import com.netease.yunxin.lite.util.ThreadUtils;
+import com.netease.nertc.audiocall.utils.SystemPermissionUtils;
+
 
 public abstract class DemoBluetoothManager {
     private static final String TAG = "AbsBluetoothManager";
@@ -48,7 +48,6 @@ public abstract class DemoBluetoothManager {
     protected volatile boolean mBlueToothSCO;
 
     public DemoBluetoothManager(Context context, DemoAudioManager manager) {
-        ThreadUtils.checkIsOnUiThread();
         mContext = context;
         DemoAudioDeviceManager = manager;
         mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
