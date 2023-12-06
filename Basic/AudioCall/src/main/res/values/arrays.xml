@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="audio_route">
+        <item>default</item>
+        <item>headset</item>
+        <item>bluetooth</item>
+        <item>speaker</item>
+    </string-array>
+</resources>
